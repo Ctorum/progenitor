@@ -1,8 +1,9 @@
 mod cli;
 mod commands;
+mod templates;
 
 use clap::Parser;
-use cli::{Cli, Commands};
+use crate::cli::cli::{Cli, Commands};
 
 fn main() {
     let args = Cli::parse();

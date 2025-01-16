@@ -8,8 +8,8 @@ clap = { version = "4.5.26", features = ["derive"] }
 
 [[bin]]
 name = "progenitor"
-path = "main.rs"
+path = "src/main.rs"
 
 [[bin]]
 name = "pgen"
-path = "main.rs"
+path = "src/main.rs"
