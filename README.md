@@ -11,7 +11,14 @@
 
 ## 🛠️ Installation
 
-To install **Progenitor** globally, you'll need to build the project from source:
+To install **Progenitor** using Homebrew:
+
+```bash
+brew tap ctorum/progenitor
+brew install progenitor
+```
+
+To install **Progenitor** from source:
 
 ```bash
 cargo build --release
