@@ -43,3 +43,15 @@ or
 ```bash
 ./target/release/pgen create -t <template> -n <project_name> <path>
 ```
+
+List all available templates:
+
+```bash
+./target/release/progenitor list
+```
+
+or
+
+```bash
+./target/release/pgen list
+```
