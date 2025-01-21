@@ -10,5 +10,6 @@ fn main() {
 
     match args.command {
         Commands::Create(cmd) => cmd.execute(),
+        Commands::List(cmd) => cmd.execute(),
     }
 }

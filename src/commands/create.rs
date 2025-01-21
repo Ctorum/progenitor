@@ -1,6 +1,7 @@
 use clap::Args;
 use std::fs;
 use std::path::Path;
+use colored::*;
 
 use crate::templates::{fastapi, fiber};
 
@@ -20,10 +21,10 @@ impl Create {
         let templates = vec!["fastapi", "fiber"];
         
         if !templates.contains(&self.template.as_str()) {
-            println!("Template '{}' not found!", self.template);
-            println!("Available templates:");
+            println!("{}", format!("Template '{}' not found!", self.template).red());
+            println!("{}", "Available templates:".yellow());
             for template in templates {
-                println!("- {}", template);
+                println!("{} {}", "-".yellow(), template.green());
             }
             return;
         }
@@ -36,6 +37,6 @@ impl Create {
             "fiber" => fiber::create_files(&project_path, &self.name),
             _ => unreachable!()
         }
-        println!("✨ Project {} created successfully using {} template!", self.name, self.template);
+        println!("{} Project {} created successfully using {} template!", "✨".bright_yellow(), self.name.green(), self.template.green());
     }
 }

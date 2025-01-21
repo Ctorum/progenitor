@@ -1,5 +1,6 @@
 use clap::{Parser, Subcommand};
 use crate::commands::create::Create;
+use crate::commands::list::List;
 
 #[derive(Parser)]
 #[command(name = "progenitor")]
@@ -13,5 +14,6 @@ pub struct Cli {
 
 #[derive(Subcommand)]
 pub enum Commands {
-    Create(Create)
+    Create(Create),
+    List(List)
 }
