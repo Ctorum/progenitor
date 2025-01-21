@@ -3,7 +3,7 @@ use std::fs;
 use std::path::Path;
 use colored::*;
 
-use crate::templates::{fastapi, fiber};
+use crate::templates::{fastapi, fiber, gcp_terra_go};
 
 #[derive(Args)]
 pub struct Create {
@@ -18,7 +18,7 @@ pub struct Create {
 
 impl Create {
     pub fn execute(&self) {
-        let templates = vec!["fastapi", "fiber"];
+        let templates = vec!["fastapi", "fiber", "gcp-terra-go"];
         
         if !templates.contains(&self.template.as_str()) {
             println!("{}", format!("Template '{}' not found!", self.template).red());
@@ -35,6 +35,7 @@ impl Create {
         match self.template.as_str() {
             "fastapi" => fastapi::create_files(&project_path),
             "fiber" => fiber::create_files(&project_path, &self.name),
+            "gcp-terra-go" => gcp_terra_go::create_files(&project_path, &self.name),
             _ => unreachable!()
         }
         println!("{} Project {} created successfully using {} template!", "✨".bright_yellow(), self.name.green(), self.template.green());
