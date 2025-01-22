@@ -5,7 +5,7 @@ use crate::commands::list::List;
 #[derive(Parser)]
 #[command(name = "progenitor")]
 #[command(author = "Scolion <scolion@protonmail.com>")]
-#[command(version = "0.1.0")]
+#[command(version = "0.2.5")]
 #[command(about = "A CLI tool for your project", long_about = None)]
 pub struct Cli {
     #[command(subcommand)]

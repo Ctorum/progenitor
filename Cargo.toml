@@ -1,6 +1,6 @@
 [package]
 name = "progenitor-cli"
-version = "0.2.4"
+version = "0.2.5"
 edition = "2021"
 description = "A CLI tool for generating custom code templates"
 license = "MIT"
