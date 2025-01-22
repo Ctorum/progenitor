@@ -3,7 +3,7 @@ use std::fs;
 use std::path::Path;
 use colored::*;
 
-use crate::templates::{fastapi, fiber, gcp_terra_go};
+use crate::templates::TEMPLATES;
 
 #[derive(Args)]
 pub struct Create {
@@ -17,14 +17,14 @@ pub struct Create {
 }
 
 impl Create {
-    pub fn execute(&self) {
-        let templates = vec!["fastapi", "fiber", "gcp-terra-go"];
+    pub fn execute(&self) {        
+        let template = TEMPLATES.iter().find(|t| t.name == self.template);
         
-        if !templates.contains(&self.template.as_str()) {
+        if template.is_none() {
             println!("{}", format!("Template '{}' not found!", self.template).red());
             println!("{}", "Available templates:".yellow());
-            for template in templates {
-                println!("{} {}", "-".yellow(), template.green());
+            for template in TEMPLATES {
+                println!("{} {}", "-".yellow(), template.name.green());
             }
             return;
         }
@@ -32,12 +32,7 @@ impl Create {
         let project_path = Path::new(&self.path).join(&self.name);
         fs::create_dir(&project_path).unwrap();
 
-        match self.template.as_str() {
-            "fastapi" => fastapi::create_files(&project_path),
-            "fiber" => fiber::create_files(&project_path, &self.name),
-            "gcp-terra-go" => gcp_terra_go::create_files(&project_path, &self.name),
-            _ => unreachable!()
-        }
+        (template.unwrap().create_fn)(&project_path, &self.name);
+        
         println!("{} Project {} created successfully using {} template!", "✨".bright_yellow(), self.name.green(), self.template.green());
-    }
-}
+    }}
