@@ -2,6 +2,11 @@
 name = "progenitor-cli"
 version = "0.2.0"
 edition = "2021"
+description = "A CLI tool for generating custom code templates"
+license = "MIT"
+documentation = "https://docs.rs/progenitor-cli"
+homepage = "https://github.com/Ctorum/progenitor"
+repository = "https://github.com/Ctorum/progenitor"
 
 [dependencies]
 clap = { version = "4.5.26", features = ["derive"] }
