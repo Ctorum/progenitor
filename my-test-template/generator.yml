@@ -1,0 +1,17 @@
+folder-app:
+  description: "A simple Python application template with a subdirectory."
+  variables:
+    - name: author
+      type: string
+      default: "Roo"
+      prompt: "Enter the authors name:"
+  structure:
+    - type: directory
+      name: "src"
+      content:
+        - type: file
+          name: "main.py"
+          source: "src/main.py.gen"
+    - type: file
+      name: "README.md"
+      source: "README.py.gen"

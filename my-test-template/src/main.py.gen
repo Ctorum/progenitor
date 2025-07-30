@@ -1,0 +1,7 @@
+# src/main.py
+def hello_world():
+    print("Hello, ${project_name} from ${author} in a subdirectory!")
+
+if __name__ == "__main__":
+    hello_world()
+

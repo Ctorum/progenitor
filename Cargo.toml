@@ -1,6 +1,6 @@
 [package]
 name = "progenitor-cli"
-version = "0.2.5"
+version = "0.3.0"
 edition = "2021"
 description = "A CLI tool for generating custom code templates"
 license = "MIT"
@@ -11,6 +11,9 @@ repository = "https://github.com/Ctorum/progenitor"
 [dependencies]
 clap = { version = "4.5.26", features = ["derive"] }
 colored = "3.0.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_yaml = "0.9"
+dirs = "5.0.1"
 
 [[bin]]
 name = "progenitor"
